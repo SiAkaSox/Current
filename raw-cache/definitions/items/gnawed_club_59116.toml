@@ -1,10 +1,11 @@
 id = 59116
 inherit = 59116        # keep the name, models and everything else already in the cache; only the inventory camera is set below
 
-# Inventory camera (what Rem's editor calls Zoom / Pitch / Roll / Yaw / Offset X / Offset Y)
+# Inventory camera, horizontally flipped (handle bottom-left, head top-right).
+# Rems editor names: Zoom / Pitch / Roll / Yaw / Offset X / Offset Y
 zoom2d = 1500
-xan2d = 376            # Pitch (RotationX)
-yan2d = 300            # Roll (RotationY)
-zan2d = 0              # Yaw (RotationZ)
-xOffset2d = -4
-yOffset2d = 12
+xan2d = 1348           # Pitch
+yan2d = 1824           # Roll
+zan2d = 7              # Yaw
+xOffset2d = 14
+yOffset2d = 53
