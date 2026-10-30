@@ -178,13 +178,17 @@ public class CommandHandler implements Incoming {
                         "::cammypvp", "::fallypvp", "::lumbpvp",
                         "",
                         "<col=800000>Misc Commands:</col>",
-                        "::help", "::yell",
+                        "::help", "::yell", "::log",
                         "::char", "::heal", "::skull",
                         "::journal", "::presets", "::toggles", "::bestiary",
                         "",
                         "<col=800000>Website Commands:</col>",
                         "::store", "::vote", "::guides", "::support", "::forums", "::scores", "::discord", "::thread #", "::member #"
                 );
+                return true;
+            }
+            case "log": {
+                player.getCollectionLog().openCollectionLog(player);
                 return true;
             }
             case "raid":
