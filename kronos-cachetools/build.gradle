@@ -1,0 +1,41 @@
+version = '1.0'
+
+apply plugin: 'application'
+apply plugin: 'kotlin'
+
+dependencies {
+    // Kronos' own cache reader: every pack is verified through the same FileStore the server boots with.
+    implementation project(':kronos-api')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation 'com.google.code.gson:gson:2.8.2'
+
+    // Runtime dependencies of the vendored displee cache library in src/main/kotlin/com/displee (see VENDORED.md there).
+    implementation 'com.displee:disio:2.2'
+    implementation 'com.github.jponge:lzma-java:1.3'
+    implementation 'org.apache.ant:ant:1.10.14'
+}
+
+application {
+    mainClass = 'io.ruin.cachetools.CacheToolsKt'
+}
+
+// Every path the tool uses (Cache/, raw-cache/, cache-dump/, Cache-backups/, kronos-server/data/region_keys.json)
+// is relative to the repository root, so all tasks run from there.
+def cacheToolTask = { String name, String desc, List<String> fixedArgs ->
+    tasks.register(name, JavaExec) {
+        group = 'kronos cache'
+        description = desc
+        classpath = sourceSets.main.runtimeClasspath
+        mainClass = 'io.ruin.cachetools.CacheToolsKt'
+        workingDir = rootProject.projectDir
+        maxHeapSize = '2g'
+        def extra = (project.findProperty('cacheArgs') ?: '').toString().trim()
+        args = fixedArgs + (extra ? extra.split(/\s+/).toList() : [])
+    }
+}
+
+cacheToolTask('packCache', 'Pack raw-cache/ (files, definitions, models, sprites, maps) into Cache/, with verification. Extra flags via -PcacheArgs="--dry-run --backup --only models,maps"', ['pack'])
+cacheToolTask('dumpCache', 'Dump assets from Cache/ into cache-dump/. -PcacheArgs="model 1234" | "sprite 535" | "map 50_50" | "item 4151" | "npc 3080" | "object 375" | "file 2 10 4151"', ['dump'])
+cacheToolTask('cacheInfo', 'Print a summary of Cache/ (indices, archive counts, revisions).', ['info'])
+cacheToolTask('restoreCache', 'List cache backups, or restore one with -PcacheArgs="<backup name>".', ['restore'])
+cacheToolTask('cacheTool', 'Run kronos-cachetools with raw arguments: -PcacheArgs="<command> ..."', [])

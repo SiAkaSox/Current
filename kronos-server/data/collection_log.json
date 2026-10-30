@@ -1,0 +1,95 @@
+{
+## COLLECTION LOG ITEMS
+##
+## Only the itemIds listed here are recorded in a player's collection log. The server loads this file at startup.
+## Lines starting with ## are notes. Lines starting with a single # are ready-made examples: remove the # to use one.
+## Comments only work INSIDE the outer { } and the file must not have a trailing comma before a ] or }.
+## Rules for adding an entry to a category:
+##   - If it is the first entry in that category, uncomment the example as it is (it starts with {).
+##   - If entries already exist above it, the example starts with ,{ so the comma is already in place.
+## "name" is for your own reference. The server only reads the itemIds, so the category an entry sits in does not matter to the server.
+## NOTE: this file does not create the entry in the in-game log. The left-hand list and the item grid come from the cache (structs 471-475).
+
+  "Bosses": [
+    {
+      "name": "Mossback Rats",
+      "items": [
+        ## add item ids here, one per line, e.g.   { "itemId": 12345 },   (no comma after the last one)
+      ]
+    },
+    {
+      "name": "Dusklings",
+      "items": [
+        ## add item ids here, one per line, e.g.   { "itemId": 12345 },   (no comma after the last one)
+      ]
+    }
+    ## Example boss entry (real REIGN data). Uncomment to add; the leading comma joins it to the entry above:
+    # ,{
+    #   "name": "Abyssal Sire",
+    #   "items": [
+    #     { "itemId": 15312 },
+    #     { "itemId": 13273 },
+    #     { "itemId": 7979 },
+    #     { "itemId": 13274 },
+    #     { "itemId": 13275 },
+    #     { "itemId": 13276 },
+    #     { "itemId": 13277 },
+    #     { "itemId": 13265 },
+    #     { "itemId": 4151 }
+    #   ]
+    # }
+  ],
+
+  "Raids": [
+    ## Example raid entry (first 4 of 22 items). This category is empty, so there is no leading comma:
+    # {
+    #   "name": "Chambers of Xeric",
+    #   "items": [
+    #     { "itemId": 20851 },
+    #     { "itemId": 22386 },
+    #     { "itemId": 20997 },
+    #     { "itemId": 21003 }
+    ##     (the real entry has more items; add more { "itemId": N } lines here, comma between, none after the last)
+    #   ]
+    # }
+  ],
+
+  "Clues": [
+    ## Example clue entry (first 4 of 16 items):
+    # {
+    #   "name": "Beginner Treasure Trials",
+    #   "items": [
+    #     { "itemId": 23285 },
+    #     { "itemId": 23288 },
+    #     { "itemId": 23291 },
+    #     { "itemId": 23294 }
+    ##     (the real entry has more items; add more { "itemId": N } lines here, comma between, none after the last)
+    #   ]
+    # }
+  ],
+
+  "Minigames": [
+    ## Example minigame entry:
+    # {
+    #   "name": "Fishing Trawler",
+    #   "items": [
+    #     { "itemId": 13258 },
+    #     { "itemId": 13259 },
+    #     { "itemId": 13260 },
+    #     { "itemId": 13261 }
+    #   ]
+    # }
+  ],
+
+  "Other": [
+    ## Example other entry:
+    # {
+    #   "name": "Chaos Druids",
+    #   "items": [
+    #     { "itemId": 20517 },
+    #     { "itemId": 20520 },
+    #     { "itemId": 20595 }
+    #   ]
+    # }
+  ]
+}
