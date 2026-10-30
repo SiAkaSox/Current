@@ -97,6 +97,10 @@ switch_struct ($struct0) {
 		return("Gauntlet completion count: <col=ffffff><~script2734(%var2048)></col>");
 	case the_nightmare_1263 :
 		return("Nightmare kills: <col=ffffff><~script2734(%var2048)></col>");
+	case mossback_rats_719 :
+		return("Mossback Rat kills: <col=ffffff><~script2734(%var2048)></col>");
+	case dusklings_720 :
+		return("Duskling kills: <col=ffffff><~script2734(%var2048)></col>");
 	case default :
 		return("");
 }

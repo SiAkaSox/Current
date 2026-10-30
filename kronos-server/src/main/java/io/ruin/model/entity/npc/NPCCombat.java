@@ -264,7 +264,8 @@ public abstract class NPCCombat extends Combat {
             if (killer != null && killer.player != null) {
                 String npcName = npc.getDef().name;
                 killer.player.recordNpcKill(npcName);
-                if (npcName != null && (npcName.equalsIgnoreCase("Mossback Rat") || npcName.equalsIgnoreCase("Duskling")))
+                killer.player.getCollectionLog().onNpcKill(npcName);
+                if (npcName != null &&(npcName.equalsIgnoreCase("Mossback Rat") || npcName.equalsIgnoreCase("Duskling")))
                     io.ruin.model.inter.handlers.TabQuest.send(killer.player);
                 Slayer.onNPCKill(killer.player, npc);
                 if (npc.getDef().killCounter != null)
@@ -389,7 +390,7 @@ public abstract class NPCCombat extends Combat {
     private void handleDrop(Killer killer, Position dropPosition, Player pKiller, List<Item> items) {
         for(Item item : items) {
             if (pKiller != null)
-                pKiller.getCollectionLog().checkItemReceived(item);
+                pKiller.getCollectionLog().checkItemReceived(item, npc.getDef().name);
             if (item.getId() == 21820) {
                 if (BraceletOfEthereum.handleEthereumDrop(pKiller, item)) {
                     continue;
