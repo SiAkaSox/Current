@@ -1,0 +1,25 @@
+# A wieldable whip built from scratch, reusing the Abyssal whip's (4151) models.
+id = 59116
+name = "Gnawed Club"
+inherit = 8841
+
+inventoryModel = 59117
+zoom2d = 1600
+xan2d = 1700
+yan2d = 1000
+xOffset2d = 0
+yOffset2d = 0
+
+
+
+
+
+maleModel = 59116
+femaleModel = 59116
+femaleOffset = 6
+
+ioption2 = "Wield"     # inventory options 1-5; ioption5 is "Drop" unless set
+cost = 250000
+members = true
+grandExchange = true
+
