@@ -99224,15 +99224,16 @@
         "weight": 0.0,
     	"protect_value": 20086033
       },
-      {
-      "id": 59116,
-      "tradeable": true,
-      "examine": "A club gnawed from a piece of wood.",
-      "weight": 1.0,
-      "protect_value": 0,
-      "equip_slot": 3,
-      "crush_attack_bonus": 5,
-      "melee_strength_bonus": 4
-      }
+  {
+    "id": 59116,
+    "tradeable": true,
+    "examine": "A club gnawed from a piece of wood.",
+    "weight": 1.0,
+    "protect_value": 0,
+    "equip_slot": 3,
+    "crush_attack_bonus": 5,
+    "melee_strength_bonus": 4,
+    "weapon_type": "WARHAMMER"
+  }
 
 ]
