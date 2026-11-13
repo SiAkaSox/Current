@@ -1,0 +1,7 @@
+id = 20005
+inherit = 2839
+name = "Fungor"
+models = [59118]
+combatLevel = 36
+option1 = "Attack"
+option2 = "Hidden"
